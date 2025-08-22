@@ -5,7 +5,9 @@ A modern, responsive electronics e-commerce website built with HTML, TailwindCSS
 ## 🚀 Features
 
 ### Design & UI
+- **Dark/Light Mode Toggle**: Switch between dark and light themes with theme persistence
 - **Modern Dark Theme**: Sleek black background with neon blue/green accents
+- **Clean Light Theme**: Professional white/gray theme for better readability
 - **Fully Responsive**: Mobile-first design that works on all devices
 - **Smooth Animations**: CSS transitions and JavaScript-powered interactions
 - **Futuristic Design**: Tech-inspired UI with glowing effects
@@ -128,6 +130,14 @@ The website uses TailwindCSS classes. Custom colors are defined in the `tailwind
 - `products.js`: Product filtering, search, display
 - `product-details.js`: Individual product functionality
 - `contact.js`: Form handling and FAQ interactions
+- `theme.js`: Dark/Light mode toggle with localStorage persistence
+
+### Theme Toggle Feature
+The website includes a theme toggle button in the navigation bar:
+- **Moon icon**: Indicates dark mode is active (click to switch to light mode)
+- **Sun icon**: Indicates light mode is active (click to switch to dark mode)
+- **Persistence**: Your theme preference is saved in localStorage
+- **Smooth Transition**: All elements transition smoothly between themes
 
 ## 📊 Browser Support
 

@@ -28,6 +28,44 @@
         .glow-green {
             box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
         }
+        
+        /* Light mode specific styles */
+        .light-mode {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-accent: #f1f5f9;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+        }
+        
+        .light-theme {
+            background: var(--bg-primary, #f8fafc) !important;
+            color: var(--text-primary, #1f2937) !important;
+        }
+        
+        .light-theme .bg-dark-secondary {
+            background: var(--bg-secondary, #ffffff) !important;
+            border: 1px solid var(--border-color, #e5e7eb);
+        }
+        
+        .light-theme .bg-dark-accent {
+            background: var(--bg-accent, #f1f5f9) !important;
+            border: 1px solid var(--border-color, #e5e7eb);
+        }
+        
+        .light-theme .text-white {
+            color: var(--text-primary, #1f2937) !important;
+        }
+        
+        .light-theme .text-gray-300 {
+            color: var(--text-secondary, #6b7280) !important;
+        }
+        
+        /* Transition for smooth theme switching */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-dark-bg text-white">
@@ -61,13 +99,19 @@
                 </div>
 
                 <!-- Cart & Mobile Menu -->
-                <div class="flex items-center space-x-4">
-                    <button id="cart-button" class="relative p-2 hover:text-neon-blue transition-colors">
-                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
-                        <span id="cart-count" class="absolute -top-1 -right-1 bg-neon-green text-black text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                                <div class="flex items-center space-x-4">
+                    <button id="search-btn" class="text-gray-300 hover:text-cyan-400 transition-colors">
+                        <i class="fas fa-search"></i>
                     </button>
-                    <button id="mobile-menu-button" class="md:hidden p-2">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    <button id="theme-toggle" class="text-gray-300 hover:text-cyan-400 transition-colors" title="Toggle Dark/Light Mode">
+                        <i id="theme-icon" class="fas fa-moon text-xl"></i>
+                    </button>
+                    <div id="cart-icon" class="relative cursor-pointer text-gray-300 hover:text-cyan-400 transition-colors">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </div>
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-cyan-400 transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
@@ -318,5 +362,6 @@
     <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
 </body>
 </html>
