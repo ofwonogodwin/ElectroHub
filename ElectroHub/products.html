@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - ElectroHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': '#00D2FF',
+                        'neon-green': '#39FF14',
+                        'dark-bg': '#0A0A0A',
+                        'dark-secondary': '#1A1A1A',
+                        'dark-accent': '#2A2A2A'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow {
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-dark-secondary/95 backdrop-blur-sm fixed w-full z-50 border-b border-neon-blue/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-neon-blue">ElectroHub</h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Home</a>
+                        <a href="products.html" class="text-white hover:text-neon-blue transition-colors px-3 py-2">Products</a>
+                        <a href="index.html#deals" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Deals</a>
+                        <a href="about.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">About</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Contact</a>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="Search products..." 
+                               class="bg-dark-accent border border-gray-600 rounded-lg px-4 py-2 pr-10 focus:outline-none focus:border-neon-blue w-64">
+                        <i data-lucide="search" class="absolute right-3 top-2.5 w-5 h-5 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="cart-button" class="relative p-2 hover:text-neon-blue transition-colors">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-neon-green text-black text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-secondary border-t border-neon-blue/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-300 block px-3 py-2 hover:text-neon-blue">Home</a>
+                <a href="products.html" class="text-white block px-3 py-2 hover:text-neon-blue">Products</a>
+                <a href="index.html#deals" class="text-gray-300 block px-3 py-2 hover:text-neon-blue">Deals</a>
+                <a href="about.html" class="text-gray-300 block px-3 py-2 hover:text-neon-blue">About</a>
+                <a href="contact.html" class="text-gray-300 block px-3 py-2 hover:text-neon-blue">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-24 pb-12 px-4 bg-gradient-to-br from-dark-bg to-dark-secondary">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Our <span class="text-neon-blue">Products</span></h1>
+            <p class="text-xl text-gray-300">Discover the latest in technology</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="py-8 px-4 bg-dark-secondary">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex flex-wrap gap-4">
+                    <select id="category-filter" class="bg-dark-accent border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-neon-blue">
+                        <option value="">All Categories</option>
+                        <option value="smartphones">Smartphones</option>
+                        <option value="laptops">Laptops</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <select id="price-filter" class="bg-dark-accent border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-neon-blue">
+                        <option value="">All Prices</option>
+                        <option value="0-100">$0 - $100</option>
+                        <option value="100-500">$100 - $500</option>
+                        <option value="500-1000">$500 - $1000</option>
+                        <option value="1000+">$1000+</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-gray-400">Sort by:</span>
+                    <select id="sort-filter" class="bg-dark-accent border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-neon-blue">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+            
+            <!-- Loading State -->
+            <div id="loading" class="text-center py-12 hidden">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-neon-blue"></div>
+                <p class="mt-4 text-gray-400">Loading products...</p>
+            </div>
+
+            <!-- No Results -->
+            <div id="no-results" class="text-center py-12 hidden">
+                <i data-lucide="search-x" class="w-16 h-16 mx-auto text-gray-400 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">No products found</h3>
+                <p class="text-gray-400">Try adjusting your search or filters</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed right-0 top-0 h-full w-80 bg-dark-secondary border-l border-neon-blue/20 transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Shopping Cart</h3>
+                <button id="close-cart" class="text-gray-400 hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="cart-items" class="space-y-4 mb-6 max-h-96 overflow-y-auto">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="border-t border-gray-600 pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-bold">Total:</span>
+                    <span id="cart-total" class="text-lg font-bold text-neon-blue">$0.00</span>
+                </div>
+                <button class="w-full bg-neon-blue hover:bg-neon-blue/80 text-black font-bold py-3 rounded-lg transition-all duration-300">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <button id="floating-cart" class="fixed bottom-6 right-6 bg-neon-blue hover:bg-neon-blue/80 text-black p-4 rounded-full shadow-lg glow transition-all duration-300 z-40">
+        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+        <span id="floating-cart-count" class="absolute -top-2 -right-2 bg-neon-green text-black text-xs rounded-full h-6 w-6 flex items-center justify-center hidden">0</span>
+    </button>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg border-t border-gray-800 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-neon-blue mb-4">ElectroHub</h3>
+                    <p class="text-gray-400 mb-4">Your trusted partner for all electronics needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                            <i data-lucide="twitter" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-gray-400 hover:text-neon-blue transition-colors">Products</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-neon-blue transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-neon-blue transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Smartphones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Laptops</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Gaming</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Accessories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                            123 Tech Street, Digital City
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+                            +1 (555) 123-4567
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                            info@electrohub.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 ElectroHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/products.js"></script>
+</body>
+</html>

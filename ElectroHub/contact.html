@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - ElectroHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': '#00D2FF',
+                        'neon-green': '#39FF14',
+                        'dark-bg': '#0A0A0A',
+                        'dark-secondary': '#1A1A1A',
+                        'dark-accent': '#2A2A2A'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-white">
+    <!-- Navigation -->
+    <nav class="bg-dark-secondary/95 backdrop-blur-sm fixed w-full z-50 border-b border-neon-blue/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-neon-blue">ElectroHub</h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Home</a>
+                        <a href="products.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Products</a>
+                        <a href="index.html#deals" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Deals</a>
+                        <a href="about.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">About</a>
+                        <a href="contact.html" class="text-white hover:text-neon-blue transition-colors px-3 py-2">Contact</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="cart-button" class="relative p-2 hover:text-neon-blue transition-colors">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-neon-green text-black text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-secondary border-t border-neon-blue/20">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-300 block px-3 py-2 hover:text-neon-blue">Home</a>
+                <a href="products.html" class="text-gray-300 block px-3 py-2 hover:text-neon-blue">Products</a>
+                <a href="index.html#deals" class="text-gray-300 block px-3 py-2 hover:text-neon-blue">Deals</a>
+                <a href="about.html" class="text-gray-300 block px-3 py-2 hover:text-neon-blue">About</a>
+                <a href="contact.html" class="text-white block px-3 py-2 hover:text-neon-blue">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 px-4 bg-gradient-to-br from-dark-bg to-dark-secondary">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Get in <span class="text-neon-blue">Touch</span></h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center bg-dark-secondary rounded-xl p-8 border border-gray-800">
+                    <div class="bg-neon-blue/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="phone" class="w-8 h-8 text-neon-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Call Us</h3>
+                    <p class="text-gray-300 mb-2">+1 (555) 123-4567</p>
+                    <p class="text-gray-400 text-sm">Mon-Fri 9AM-6PM PST</p>
+                </div>
+                
+                <div class="text-center bg-dark-secondary rounded-xl p-8 border border-gray-800">
+                    <div class="bg-neon-green/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="mail" class="w-8 h-8 text-neon-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Email Us</h3>
+                    <p class="text-gray-300 mb-2">info@electrohub.com</p>
+                    <p class="text-gray-400 text-sm">We'll respond within 24 hours</p>
+                </div>
+                
+                <div class="text-center bg-dark-secondary rounded-xl p-8 border border-gray-800">
+                    <div class="bg-purple-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Visit Us</h3>
+                    <p class="text-gray-300 mb-2">123 Tech Street</p>
+                    <p class="text-gray-400 text-sm">Digital City, DC 12345</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map -->
+    <section class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-dark-secondary rounded-xl p-8 border border-gray-800">
+                    <h2 class="text-2xl font-bold mb-6">Send us a <span class="text-neon-blue">Message</span></h2>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first-name" class="block text-sm font-semibold mb-2">First Name *</label>
+                                <input type="text" id="first-name" name="firstName" required
+                                       class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition-colors">
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-semibold mb-2">Last Name *</label>
+                                <input type="text" id="last-name" name="lastName" required
+                                       class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition-colors">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-semibold mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                   class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-semibold mb-2">Subject *</label>
+                            <select id="subject" name="subject" required
+                                    class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition-colors">
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="order">Order Issue</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-semibold mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="5" required
+                                      class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-neon-blue transition-colors resize-none"
+                                      placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="mr-3">
+                            <label for="newsletter" class="text-sm text-gray-300">
+                                Subscribe to our newsletter for updates and deals
+                            </label>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-neon-blue hover:bg-neon-blue/80 text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center">
+                            <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Map -->
+                <div class="bg-dark-secondary rounded-xl p-8 border border-gray-800">
+                    <h2 class="text-2xl font-bold mb-6">Find Our <span class="text-neon-green">Store</span></h2>
+                    <div class="bg-dark-accent rounded-lg h-96 flex items-center justify-center mb-6">
+                        <!-- Placeholder for Google Maps -->
+                        <div class="text-center">
+                            <i data-lucide="map" class="w-16 h-16 text-gray-500 mx-auto mb-4"></i>
+                            <p class="text-gray-400 mb-4">Interactive Map</p>
+                            <p class="text-sm text-gray-500">
+                                123 Tech Street<br>
+                                Digital City, DC 12345
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-bold">Store Hours</h3>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Monday</span>
+                                    <span>9AM - 8PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Tuesday</span>
+                                    <span>9AM - 8PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Wednesday</span>
+                                    <span>9AM - 8PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Thursday</span>
+                                    <span>9AM - 8PM</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Friday</span>
+                                    <span>9AM - 9PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Saturday</span>
+                                    <span>10AM - 7PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">Sunday</span>
+                                    <span>11AM - 6PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 bg-dark-secondary">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked <span class="text-neon-blue">Questions</span></h2>
+            <div class="space-y-6">
+                <div class="bg-dark-bg rounded-xl border border-gray-800 overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none faq-button" data-faq="0">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">What is your return policy?</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-300">
+                            We offer a 30-day return policy for all unopened items in original packaging. 
+                            Electronics must be in perfect working condition with all accessories included.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-bg rounded-xl border border-gray-800 overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none faq-button" data-faq="1">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">Do you offer warranty on products?</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-300">
+                            Yes! All products come with manufacturer warranty. We also offer extended warranty 
+                            options for additional protection and peace of mind.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-bg rounded-xl border border-gray-800 overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none faq-button" data-faq="2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">How fast is your shipping?</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-300">
+                            We offer free standard shipping (3-5 business days) on orders over $50. 
+                            Express shipping (1-2 business days) is available for an additional fee.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-bg rounded-xl border border-gray-800 overflow-hidden">
+                    <button class="w-full text-left p-6 focus:outline-none faq-button" data-faq="3">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold">Can I track my order?</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-300">
+                            Absolutely! Once your order ships, you'll receive a tracking number via email. 
+                            You can also check your order status anytime in your account dashboard.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed right-0 top-0 h-full w-80 bg-dark-secondary border-l border-neon-blue/20 transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Shopping Cart</h3>
+                <button id="close-cart" class="text-gray-400 hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="cart-items" class="space-y-4 mb-6">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="border-t border-gray-600 pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-bold">Total:</span>
+                    <span id="cart-total" class="text-lg font-bold text-neon-blue">$0.00</span>
+                </div>
+                <button class="w-full bg-neon-blue hover:bg-neon-blue/80 text-black font-bold py-3 rounded-lg transition-all duration-300">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <button id="floating-cart" class="fixed bottom-6 right-6 bg-neon-blue hover:bg-neon-blue/80 text-black p-4 rounded-full shadow-lg transition-all duration-300 z-40">
+        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+        <span id="floating-cart-count" class="absolute -top-2 -right-2 bg-neon-green text-black text-xs rounded-full h-6 w-6 flex items-center justify-center hidden">0</span>
+    </button>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg border-t border-gray-800 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-neon-blue mb-4">ElectroHub</h3>
+                    <p class="text-gray-400 mb-4">Your trusted partner for all electronics needs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                            <i data-lucide="twitter" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-gray-400 hover:text-neon-blue transition-colors">Products</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-neon-blue transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-neon-blue transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Smartphones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Laptops</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Gaming</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Accessories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>
+                            123 Tech Street, Digital City
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+                            +1 (555) 123-4567
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                            info@electrohub.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 ElectroHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contact.js"></script>
+</body>
+</html>

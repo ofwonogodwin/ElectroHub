@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - ElectroHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': '#00D2FF',
+                        'neon-green': '#39FF14',
+                        'dark-bg': '#0A0A0A',
+                        'dark-secondary': '#1A1A1A',
+                        'dark-accent': '#2A2A2A'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow {
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white">
+    <!-- Navigation -->
+    <nav class="bg-dark-secondary/95 backdrop-blur-sm fixed w-full z-50 border-b border-neon-blue/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-neon-blue">ElectroHub</h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Home</a>
+                        <a href="products.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Products</a>
+                        <a href="index.html#deals" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Deals</a>
+                        <a href="about.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">About</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-neon-blue transition-colors px-3 py-2">Contact</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="cart-button" class="relative p-2 hover:text-neon-blue transition-colors">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-neon-green text-black text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button id="mobile-menu-button" class="md:hidden p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="pt-24 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <nav class="text-sm">
+                <ol class="flex items-center space-x-2">
+                    <li><a href="index.html" class="text-neon-blue hover:text-neon-blue/80">Home</a></li>
+                    <li class="text-gray-400">/</li>
+                    <li><a href="products.html" class="text-neon-blue hover:text-neon-blue/80">Products</a></li>
+                    <li class="text-gray-400">/</li>
+                    <li class="text-gray-300" id="product-breadcrumb">Product</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Product Details -->
+    <section class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Product Images -->
+                <div>
+                    <div class="bg-dark-secondary rounded-xl p-8 mb-4">
+                        <img id="main-image" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop" 
+                             alt="Product" class="w-full h-96 object-cover rounded-lg cursor-zoom-in">
+                    </div>
+                    <div class="grid grid-cols-4 gap-2">
+                        <div class="bg-dark-secondary rounded-lg p-2 cursor-pointer border-2 border-neon-blue">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=150&h=150&fit=crop" 
+                                 alt="Product view 1" class="w-full h-20 object-cover rounded">
+                        </div>
+                        <div class="bg-dark-secondary rounded-lg p-2 cursor-pointer border-2 border-transparent hover:border-neon-blue/50">
+                            <img src="https://images.unsplash.com/photo-1525373612132-b3e820b87cea?w=150&h=150&fit=crop" 
+                                 alt="Product view 2" class="w-full h-20 object-cover rounded">
+                        </div>
+                        <div class="bg-dark-secondary rounded-lg p-2 cursor-pointer border-2 border-transparent hover:border-neon-blue/50">
+                            <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?w=150&h=150&fit=crop" 
+                                 alt="Product view 3" class="w-full h-20 object-cover rounded">
+                        </div>
+                        <div class="bg-dark-secondary rounded-lg p-2 cursor-pointer border-2 border-transparent hover:border-neon-blue/50">
+                            <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=150&h=150&fit=crop" 
+                                 alt="Product view 4" class="w-full h-20 object-cover rounded">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div>
+                    <h1 id="product-title" class="text-3xl font-bold mb-4">Premium Smartphone</h1>
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-gray-400 ml-2">(4.5/5 - 128 reviews)</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <span id="product-price" class="text-4xl font-bold text-neon-blue">$899.99</span>
+                        <span class="text-2xl text-gray-400 line-through ml-4">$1199.99</span>
+                        <span class="bg-neon-green text-black px-3 py-1 rounded-full text-sm font-bold ml-4">25% OFF</span>
+                    </div>
+
+                    <p id="product-description" class="text-gray-300 text-lg mb-8">
+                        Experience the future of mobile technology with this cutting-edge smartphone. 
+                        Featuring advanced camera systems, lightning-fast performance, and stunning display quality.
+                    </p>
+
+                    <!-- Specifications -->
+                    <div class="bg-dark-secondary rounded-xl p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">Specifications</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Display:</span>
+                                <span>6.7" OLED</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Storage:</span>
+                                <span>256GB</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Camera:</span>
+                                <span>108MP Triple</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">Battery:</span>
+                                <span>5000mAh</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">OS:</span>
+                                <span>Android 14</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400">RAM:</span>
+                                <span>12GB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart Section -->
+                    <div class="bg-dark-secondary rounded-xl p-6">
+                        <div class="flex items-center mb-6">
+                            <label class="text-lg font-semibold mr-4">Quantity:</label>
+                            <div class="flex items-center border border-gray-600 rounded-lg">
+                                <button id="decrease-qty" class="px-3 py-2 hover:bg-dark-accent transition-colors">-</button>
+                                <input id="quantity" type="number" value="1" min="1" class="w-16 text-center bg-transparent py-2 focus:outline-none">
+                                <button id="increase-qty" class="px-3 py-2 hover:bg-dark-accent transition-colors">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button id="add-to-cart" class="flex-1 bg-neon-blue hover:bg-neon-blue/80 text-black font-bold py-4 px-6 rounded-lg glow transition-all duration-300 flex items-center justify-center">
+                                <i data-lucide="shopping-cart" class="w-5 h-5 mr-2"></i>
+                                Add to Cart
+                            </button>
+                            <button class="bg-transparent border border-neon-green hover:bg-neon-green hover:text-black text-neon-green font-bold py-4 px-6 rounded-lg transition-all duration-300">
+                                <i data-lucide="heart" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+                            <div class="flex flex-col items-center">
+                                <i data-lucide="truck" class="w-6 h-6 text-neon-blue mb-2"></i>
+                                <span class="text-sm text-gray-400">Free Shipping</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <i data-lucide="refresh-cw" class="w-6 h-6 text-neon-blue mb-2"></i>
+                                <span class="text-sm text-gray-400">30-Day Returns</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-neon-blue mb-2"></i>
+                                <span class="text-sm text-gray-400">2-Year Warranty</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="py-20 px-4 bg-dark-secondary">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">You May Also <span class="text-neon-green">Like</span></h2>
+            <div id="related-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Related products will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed right-0 top-0 h-full w-80 bg-dark-secondary border-l border-neon-blue/20 transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Shopping Cart</h3>
+                <button id="close-cart" class="text-gray-400 hover:text-white">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="cart-items" class="space-y-4 mb-6 max-h-96 overflow-y-auto">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="border-t border-gray-600 pt-4">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-bold">Total:</span>
+                    <span id="cart-total" class="text-lg font-bold text-neon-blue">$0.00</span>
+                </div>
+                <button class="w-full bg-neon-blue hover:bg-neon-blue/80 text-black font-bold py-3 rounded-lg transition-all duration-300">
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <button id="floating-cart" class="fixed bottom-6 right-6 bg-neon-blue hover:bg-neon-blue/80 text-black p-4 rounded-full shadow-lg glow transition-all duration-300 z-40">
+        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+        <span id="floating-cart-count" class="absolute -top-2 -right-2 bg-neon-green text-black text-xs rounded-full h-6 w-6 flex items-center justify-center hidden">0</span>
+    </button>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg border-t border-gray-800 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-neon-blue mb-4">ElectroHub</h3>
+                    <p class="text-gray-400 mb-4">Your trusted partner for all electronics needs.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-gray-400 hover:text-neon-blue transition-colors">Products</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-neon-blue transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-neon-blue transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Smartphones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Laptops</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Gaming</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-blue transition-colors">Accessories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
+                            +1 (555) 123-4567
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                            info@electrohub.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/product-details.js"></script>
+</body>
+</html>
